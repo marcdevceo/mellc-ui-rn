@@ -1,0 +1,24 @@
+import React from 'react';
+import { ViewProps } from 'react-native';
+import { backgroundColor, fontSize, fontWeight, margin, maxWidth, overflow, padding, textAlign } from '../../theme';
+export type BaseFooterProps = {
+    children?: React.ReactNode;
+    bg?: keyof typeof backgroundColor;
+    overflow?: keyof typeof overflow;
+    maxWidth?: keyof typeof maxWidth;
+    textAlign?: keyof typeof textAlign;
+    fontSize?: keyof typeof fontSize;
+    fontWeight?: keyof typeof fontWeight;
+    padding?: keyof typeof padding;
+    pt?: keyof typeof padding;
+    pb?: keyof typeof padding;
+    px?: keyof typeof padding;
+    py?: keyof typeof padding;
+    margin?: keyof typeof margin;
+    mt?: keyof typeof margin;
+    mb?: keyof typeof margin;
+    mx?: keyof typeof margin;
+    my?: keyof typeof margin;
+    companyName?: string;
+    logo?: string;
+} & ViewProps;
