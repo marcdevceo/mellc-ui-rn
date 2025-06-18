@@ -3,13 +3,19 @@ import { View } from "react-native";
 import { getSpacingStyles } from "../../utils/getSpacingStyles";
 import Button from "../button/Button";
 import Input from "./Input";
-import { BaseFormProps } from "./types-forms";
-import { backgroundColor, borderRadius, shadow as shadowStyles } from "../../theme";
+import { BaseFormProps, BaseInputProps } from "./types-forms";
+import {
+  backgroundColor,
+  borderRadius,
+  shadow as shadowStyles,
+  padding as paddingTokens,
+  margin as marginTokens,
+} from "../../theme";
 import { Subtitle } from "../typography";
 
 const Form: React.FC<BaseFormProps> = ({
   children,
-  fields = [],
+  fields = [] as BaseInputProps[],
   title,
   buttonTitle,
   buttonVariant = "primary",
@@ -21,7 +27,10 @@ const Form: React.FC<BaseFormProps> = ({
   className,
   ...rest
 }) => {
-  const spacingStyles = getSpacingStyles({ padding, margin });
+  const spacingStyles = getSpacingStyles({
+    padding: padding as keyof typeof paddingTokens,
+    margin: margin as keyof typeof marginTokens,
+  });
   const background = { backgroundColor: backgroundColor[bg] };
   const border = radius ? { borderRadius: borderRadius["lg"] } : {};
   const elevation = useShadow ? shadowStyles["md"] : {};
@@ -40,8 +49,8 @@ const Form: React.FC<BaseFormProps> = ({
     >
       {title && <Subtitle align="center">{title}</Subtitle>}
 
-      {fields.map((field) => (
-        <Input key={field.name} {...field} />
+      {fields.map((field, index) => (
+        <Input key={field.name ?? index.toString()} {...field} />
       ))}
 
       {children}
