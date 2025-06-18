@@ -4,7 +4,7 @@ import { getSpacingStyles } from "../../utils/getSpacingStyles";
 import { BaseInputProps } from "./types-forms";
 import { backgroundColor, borderRadius } from "../../theme";
 
-export default function Input({
+const Input: React.FC<BaseInputProps> = ({
   id,
   name,
   label,
@@ -16,7 +16,7 @@ export default function Input({
   radius = "md",
   className,
   ...rest
-}: BaseInputProps) {
+}: BaseInputProps) => {
   const spacing = getSpacingStyles({ padding });
 
   return (
@@ -44,4 +44,6 @@ export default function Input({
       />
     </View>
   );
-}
+};
+
+export default Input;
