@@ -1,5 +1,3 @@
-// src/components/containers/MainView.tsx
-
 import React from "react";
 import { View, StyleProp, ViewStyle } from "react-native";
 import { BaseContainerProps } from "./types-container";
