@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleProp, ViewStyle } from "react-native";
+import { View, StyleProp, ViewStyle, SafeAreaView } from "react-native";
 import { BaseContainerProps } from "./types-container";
 import {
   backgroundColor,
@@ -108,7 +108,7 @@ const MainView: React.FC<BaseContainerProps> = ({
     ...style,
   } as ViewStyle;
 
-  return <View style={mainStyles as StyleProp<ViewStyle>}>{children}</View>;
+  return <SafeAreaView style={mainStyles as StyleProp<ViewStyle>}>{children}</SafeAreaView>;
 };
 
 export default MainView;
