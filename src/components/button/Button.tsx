@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, Pressable, Text } from 'react-native';
+import { ActivityIndicator, Pressable, Text, StyleProp, ViewStyle, TextStyle } from 'react-native';
 import { spinnerSize } from '../../theme';
 import { BaseButtonProps } from './types-button';
 import { getButtonStyle } from './buttonVariants';
@@ -20,7 +20,7 @@ const Button: React.FC<BaseButtonProps> = ({
   return (
     <Pressable
       onPress={onPress}
-      style={[styles.container, style]}
+      style={[styles.container, style] as StyleProp<ViewStyle>}
       disabled={disabled || isLoading}
     >
       {isLoading ? (
@@ -30,10 +30,10 @@ const Button: React.FC<BaseButtonProps> = ({
             size={spinnerSize.sm}
             style={{ marginRight: 8 }}
           />
-          <Text style={[styles.text, textStyle]}>{loadingText}</Text>
+          <Text style={[styles.text, textStyle] as StyleProp<TextStyle>}>{loadingText}</Text>
         </>
       ) : (
-        <Text style={[styles.text, textStyle]}>{label}</Text>
+        <Text style={[styles.text, textStyle] as StyleProp<TextStyle>}>{label}</Text>
       )}
     </Pressable>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, StyleProp, ViewStyle } from "react-native";
 import { getSpacingStyles } from "../../utils/getSpacingStyles";
 import Button from "../button/Button";
 import Input from "./Input";
@@ -44,7 +44,7 @@ const Form: React.FC<BaseFormProps> = ({
         elevation,
         spacingStyles,
         className,
-      ]}
+      ] as StyleProp<ViewStyle>}
       {...rest}
     >
       {title && <Subtitle align="center">{title}</Subtitle>}
@@ -56,9 +56,7 @@ const Form: React.FC<BaseFormProps> = ({
       {children}
 
       {buttonTitle && (
-        <Button type="submit" variant={buttonVariant}>
-          {buttonTitle}
-        </Button>
+        <Button variant={buttonVariant} label={buttonTitle} />
       )}
     </View>
   );

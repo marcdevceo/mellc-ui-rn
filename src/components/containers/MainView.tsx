@@ -1,7 +1,7 @@
 // src/components/containers/MainView.tsx
 
 import React from "react";
-import { View } from "react-native";
+import { View, StyleProp, ViewStyle } from "react-native";
 import { BaseContainerProps } from "./types-container";
 import {
   backgroundColor,
@@ -108,9 +108,9 @@ const MainView: React.FC<BaseContainerProps> = ({
     ...(shadowKey ? shadow[shadowKey] : {}),
     ...spacing,
     ...style,
-  };
+  } as ViewStyle;
 
-  return <View style={mainStyles}>{children}</View>;
+  return <View style={mainStyles as StyleProp<ViewStyle>}>{children}</View>;
 };
 
 export default MainView;

@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, StyleProp, ViewStyle } from "react-native";
 import { BaseContainerProps } from "./types-container";
 import {
   backgroundColor,
@@ -46,7 +46,7 @@ const StackView: React.FC<BaseContainerProps> = ({
     mr,
   });
 
-  const stackStyles = {
+  const stackStyles: ViewStyle = {
     flexDirection: "column",
     backgroundColor: backgroundColor[bg],
     borderRadius: br ? borderRadius[br] : undefined,
@@ -59,7 +59,7 @@ const StackView: React.FC<BaseContainerProps> = ({
   };
 
   return (
-    <View style={stackStyles}>
+    <View style={stackStyles as StyleProp<ViewStyle>}>
       {React.Children.map(children, (child, index) => {
         if (!React.isValidElement(child)) return null;
         const marginBottom =

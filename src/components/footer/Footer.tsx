@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, StyleProp, ViewStyle, TextStyle } from "react-native";
 import {
   padding,
   margin,
@@ -9,6 +9,7 @@ import {
   textAlign,
   backgroundColor,
   textColor,
+  overflow,
 } from "../../theme";
 import { BaseFooterProps } from "./types-footer";
 
@@ -31,7 +32,7 @@ const Footer: React.FC<BaseFooterProps> = ({
   py,
   textAlign: textAlignKey = "center",
   maxWidth: maxWidthKey,
-  overflow,
+  overflow: overflowKey,
 }) => {
   return (
     <View
@@ -39,7 +40,7 @@ const Footer: React.FC<BaseFooterProps> = ({
         {
           backgroundColor: backgroundColor[bg],
           padding: padding[paddingKey],
-          overflow: overflow ? overflow[overflow] : undefined,
+          overflow: overflowKey ? overflow[overflowKey] : undefined,
         },
         pt && { paddingTop: padding[pt] },
         pb && { paddingBottom: padding[pb] },
@@ -53,8 +54,8 @@ const Footer: React.FC<BaseFooterProps> = ({
         my && { marginVertical: margin[my] },
 
         maxWidthKey && { maxWidth: maxWidth[maxWidthKey] },
-      ]}
-    >
+        ] as StyleProp<ViewStyle>}
+      >
       {logo && (
         <Image
           source={{ uri: logo }}
@@ -68,28 +69,28 @@ const Footer: React.FC<BaseFooterProps> = ({
         />
       )}
 
-      {companyName && (
-        <Text
-          style={{
-            fontSize: fontSize[fontSizeKey],
-            fontWeight: fontWeight[fontWeightKey],
-            color: textColor.primary,
-            textAlign: textAlign[textAlignKey],
-            marginBottom: 4,
-          }}
-        >
+        {companyName && (
+          <Text
+            style={{
+              fontSize: fontSize[fontSizeKey],
+              fontWeight: fontWeight[fontWeightKey],
+              color: textColor.primary,
+              textAlign: textAlign[textAlignKey],
+              marginBottom: 4,
+            } as TextStyle}
+          >
           {companyName}
         </Text>
       )}
 
-      {children && (
-        <Text
-          style={{
-            fontSize: fontSize[fontSizeKey],
-            color: textColor.secondary,
-            textAlign: textAlign[textAlignKey],
-          }}
-        >
+        {children && (
+          <Text
+            style={{
+              fontSize: fontSize[fontSizeKey],
+              color: textColor.secondary,
+              textAlign: textAlign[textAlignKey],
+            } as TextStyle}
+          >
           {children}
         </Text>
       )}

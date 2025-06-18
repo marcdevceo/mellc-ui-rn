@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, StyleProp, TextStyle } from "react-native";
 import { BaseTextProps } from "./types-typography";
 import { fontSize, fontWeight, textAlign, textColor } from "../../theme";
 
@@ -18,14 +18,14 @@ const CaptionText: React.FC<BaseTextProps> = ({
     <Text
       style={[
         styles.base,
-        fontSize[size],
-        fontWeight[weight],
+        { fontSize: fontSize[size] },
+        { fontWeight: fontWeight[weight] },
         // fontTokens[font],
-        textColor[color],
-        textAlign[align],
+        { color: textColor[color] },
+        { textAlign: textAlign[align] },
         italic && styles.italic,
         style,
-      ]}
+      ] as StyleProp<TextStyle>}
       {...rest}
     >
       {children}
