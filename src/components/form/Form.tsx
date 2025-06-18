@@ -4,7 +4,7 @@ import { getSpacingStyles } from "../../utils/getSpacingStyles";
 import Button from "../button/Button";
 import Input from "./Input";
 import { BaseFormProps } from "./types-forms";
-import { backgroundColor, borderRadius } from "../../theme";
+import { backgroundColor, borderRadius, shadow as shadowStyles } from "../../theme";
 import { Subtitle } from "../typography";
 
 const Form: React.FC<BaseFormProps> = ({
@@ -16,15 +16,15 @@ const Form: React.FC<BaseFormProps> = ({
   bg = "accent",
   padding = "lg",
   margin = "none",
-  shadow = false,
+  shadow: useShadow = false,
   radius = false,
   className,
   ...rest
 }) => {
   const spacingStyles = getSpacingStyles({ padding, margin });
-  const background = backgroundColor[bg];
-  const border = radius ? borderRadius["lg"] : {};
-  const elevation = shadow ? shadow["md"] : {};
+  const background = { backgroundColor: backgroundColor[bg] };
+  const border = radius ? { borderRadius: borderRadius["lg"] } : {};
+  const elevation = useShadow ? shadowStyles["md"] : {};
 
   return (
     <View
