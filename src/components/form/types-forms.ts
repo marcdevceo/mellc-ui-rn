@@ -12,7 +12,6 @@ import {
   padding,
 } from "../../theme";
 import { getButtonStyle } from "../button/buttonVariants";
-import { getSpacingStyles } from "../../utils/getSpacingStyles";
 
 export type BaseInputProps = {
   id?: string;
@@ -20,7 +19,7 @@ export type BaseInputProps = {
   label?: string;
   type?: "text" | "password";
   placeholder?: string;
-  padding?: keyof typeof getSpacingStyles;
+  padding?: keyof typeof padding;
   bg?: keyof typeof backgroundColor;
   radius?: keyof typeof borderRadius;
   className?: object; // for passing style objects
@@ -43,8 +42,8 @@ export type BaseFormProps = {
   buttonTitle?: string;
   buttonVariant?: keyof typeof getButtonStyle;
   bg?: keyof typeof backgroundColor;
-  padding?: keyof typeof getSpacingStyles;
-  margin?: keyof typeof getSpacingStyles;
+  padding?: keyof typeof padding;
+  margin?: keyof typeof margin;
   shadow?: boolean;
   radius?: boolean;
   action?: string;
