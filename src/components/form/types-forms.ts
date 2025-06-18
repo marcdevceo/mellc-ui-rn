@@ -12,7 +12,6 @@ import {
   margin,
   padding,
 } from "../../theme";
-import { getButtonStyle } from "../button/buttonVariants";
 
 export type BaseInputProps = {
   id?: string;
@@ -41,7 +40,7 @@ export type BaseFormProps = {
   fields?: BaseInputProps[];
   title?: string;
   buttonTitle?: string;
-  buttonVariant?: keyof typeof getButtonStyle;
+  buttonVariant?: keyof typeof colorVariants;
   bg?: keyof typeof backgroundColor;
   padding?: keyof typeof padding;
   margin?: keyof typeof margin;

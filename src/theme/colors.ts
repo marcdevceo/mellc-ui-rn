@@ -84,5 +84,5 @@ export const colorVariants = {
     textColor: '#FFFFFF',
     backgroundColor: 'transparent',
   },
-};
+} as const;
 

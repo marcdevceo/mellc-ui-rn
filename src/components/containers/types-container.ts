@@ -17,6 +17,8 @@ import {
   justifyContent,
   alignItems,
   alignContent,
+  position,
+  gap,
   margin,
   padding,
   zIndex,
@@ -44,8 +46,11 @@ export interface BaseContainerProps {
   flexDirection?: keyof typeof flexDirection;
   flexWrap?: keyof typeof flexWrap;
   justifyContent?: keyof typeof justifyContent;
+  justify?: keyof typeof justifyContent;
   alignItems?: keyof typeof alignItems;
   alignContent?: keyof typeof alignContent;
+  gap?: keyof typeof gap;
+  position?: keyof typeof position;
 
   // 📦 Spacing
   margin?: keyof typeof margin;

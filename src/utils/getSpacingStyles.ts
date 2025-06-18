@@ -1,3 +1,4 @@
+import { ViewStyle } from "react-native";
 import { margin, padding } from "../theme";
 
 export const getSpacingStyles = (props: {
@@ -12,8 +13,8 @@ export const getSpacingStyles = (props: {
   pb?: keyof typeof padding;
   pl?: keyof typeof padding;
   pr?: keyof typeof padding;
-}) => {
-  return {
+}): ViewStyle => {
+  const styles: ViewStyle = {
     ...(props.margin && { margin: margin[props.margin] }),
     ...(props.mt && { marginTop: margin[props.mt] }),
     ...(props.mb && { marginBottom: margin[props.mb] }),
@@ -26,4 +27,6 @@ export const getSpacingStyles = (props: {
     ...(props.pl && { paddingLeft: padding[props.pl] }),
     ...(props.pr && { paddingRight: padding[props.pr] }),
   };
+
+  return styles;
 };

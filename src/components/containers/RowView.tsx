@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleProp, ViewStyle } from 'react-native';
 import { BaseContainerProps } from './types-container';
 import { backgroundColor, borderRadius, flexGrow, flexWrap, justifyContent, alignItems, shadow } from '../../theme';
 import { getSpacingStyles } from '../../utils/getSpacingStyles';
@@ -27,7 +27,7 @@ const RowView: React.FC<BaseContainerProps> = ({
 }) => {
   const spacing = getSpacingStyles({ padding, pt, pb, pl, pr, margin, mt, mb, ml, mr });
 
-  const rowStyles = {
+  const rowStyles: ViewStyle = {
     flexDirection: 'row',
     backgroundColor: backgroundColor[bg],
     borderRadius: br ? borderRadius[br] : undefined,
@@ -40,7 +40,7 @@ const RowView: React.FC<BaseContainerProps> = ({
     ...style,
   };
 
-  return <View style={rowStyles}>{children}</View>;
+  return <View style={rowStyles as StyleProp<ViewStyle>}>{children}</View>;
 };
 
 export default RowView;

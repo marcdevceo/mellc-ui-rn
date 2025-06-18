@@ -1,4 +1,4 @@
-import { ViewStyle, TextStyle, GestureResponderEvent } from 'react-native';
+import { ViewStyle, TextStyle, GestureResponderEvent, StyleProp } from 'react-native';
 
 export type ButtonVariant =
   | 'primary'
@@ -31,6 +31,6 @@ export interface BaseButtonProps {
   loadingText?: string;
   disabled?: boolean;
   onPress?: (event: GestureResponderEvent) => void;
-  style?: ViewStyle;
-  textStyle?: TextStyle;
+  style?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
 }
